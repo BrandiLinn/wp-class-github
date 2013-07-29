@@ -1,3 +1,8 @@
+/*
+Plugin Name: AddThis with options
+Description: Modification of the Smart Layers plugin from AddThis.com.
+*/
+
 <!-- AddThis Smart Layers BEGIN -->
 <!-- Go to http://www.addthis.com/get/smart-layers to customize -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51f6d46a734d459a"></script>
