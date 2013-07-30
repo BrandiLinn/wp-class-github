@@ -5,7 +5,7 @@ Plugin Name: Class AddThis with options
 Description: Modification of the Smart Layers plugin from AddThis.com.
 */
 
-function my_scripts_method() {
+function addthis_script() {
 	wp_enqueue_script(
 		'addthis-script', //script id
 		'//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51f6d46a734d459a', //script url
@@ -15,13 +15,15 @@ function my_scripts_method() {
 	);
 }
 
+add_action( 'wp_enqueue_scripts', 'addthis_script' ); //adds the script
+
 ?>
 
 <!-- AddThis Smart Layers BEGIN -->
 <!-- Go to http://www.addthis.com/get/smart-layers to customize
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51f6d46a734d459a">//switch for enqueue as soon as I can find an explanation that makes any sense to me
 </script> -->
-<script type="text/javascript">
+<!--<script type="text/javascript">
   addthis.layers({
     'theme' : 'transparent',
     'share' : {
@@ -30,11 +32,18 @@ function my_scripts_method() {
       //admin panel needs to be able to change 'position' and 'numPreferredServices'
     }   
   });
-</script>
+</script>-->
 <!-- AddThis Smart Layers END -->
 
 <?php
 
-add_filter( 'the_content', 'addthis', 30 );
+function addthis_adder( $content ) {
+    if ( is_single() ) {
+      //what to do wit the remaining script? 
+      //am I missing a piece?
+    }
 
-//still no idea where to begin; notes and support pages unhelpful or unclear
+    return $content;
+}
+
+add_filter( 'the_content', 'addthis_adder', 30 ); //appends the thing
