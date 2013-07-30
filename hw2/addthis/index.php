@@ -1,16 +1,18 @@
 <?php
 
 /*
-Plugin Name: AddThis with options
+Plugin Name: Class AddThis with options
 Description: Modification of the Smart Layers plugin from AddThis.com.
 */
 
 function my_scripts_method() {
 	wp_enqueue_script(
-		'addthis-script',
-		's7.addthis.com/js/300/addthis_widget.js#pubid=xa-51f6d46a734d459a'
+		'addthis-script', //script id
+		'//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51f6d46a734d459a', //script url
+    array(), //dependancies (libraries, etc)
+    null, //script version, null to skip
+    true //media or footer?
 	);
-	//I have no clue what I'm doing. I don't even know what to being asking.
 }
 
 ?>
