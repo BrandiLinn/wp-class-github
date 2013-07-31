@@ -12,7 +12,16 @@ function addthis_script() {
 	);
 }
 
+function addthis_settings() {
+  wp_enqueue_script(
+    'addthis-settings', //script id
+    'addthis-settings.js' //script url
+  );
+}
+
 add_action( 'wp_enqueue_scripts', 'addthis_script' ); //adds the script
+
+add_action( 'wp_enqueue_scripts', 'addthis_settings' ); //adds the script
 
 ?>
 
