@@ -12,16 +12,6 @@ function addthis_script() {
 	);
 }
 
-function addthis_settings() {
-  wp_enqueue_script(
-    'addthis-settings', //script id
-    'addthis-settings.js' //script url
-  );
-}
-
-add_action( 'wp_enqueue_scripts', 'addthis_script' ); //adds the script
-
-add_action( 'wp_enqueue_scripts', 'addthis_settings' ); //adds the script
 
 ?>
 
@@ -45,8 +35,9 @@ add_action( 'wp_enqueue_scripts', 'addthis_settings' ); //adds the script
 
 function addthis_adder( $content ) {
     if ( is_single() ) {
-      //what to do wit the remaining script? 
-      //am I missing a piece?
+      
+      add_action( 'wp_enqueue_scripts', 'addthis_script' ); //adds the script
+      
     }
 
     return $content;
