@@ -12,7 +12,7 @@ function addthis_script() {
 	);
 }
 
-
+add_action( 'wp_enqueue_scripts', 'addthis_script' ); //adds the script
 ?>
 
 <!-- AddThis Smart Layers BEGIN -->
@@ -35,12 +35,11 @@ function addthis_script() {
 
 function addthis_adder( $content ) {
     if ( is_single() ) {
-      
-      add_action( 'wp_enqueue_scripts', 'addthis_script' ); //adds the script
-      
-    }
+        $addthis_settings  = "<script type='text/javascript'> addthis.layers({'theme' : 'transparent', 'share' : {'position' : 'left', 'numPreferredServices' : 5'} });</script>";
 
+        $content .= $addthis_settings;
+    }
     return $content;
 }
 
-add_filter( 'the_content', 'addthis_adder', 30 ); //appends the thing
+add_filter( 'the_content', 'addthis_adder', 1 ); //appends the thing
