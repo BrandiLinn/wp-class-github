@@ -8,10 +8,7 @@ Description: Modification of the Smart Layers plugin from AddThis.com.
 function addthis_script() {
 	wp_enqueue_script(
 		'addthis-script', //script id
-		'//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51f6d46a734d459a', //script url
-    array(), //dependancies (libraries, etc)
-    null, //script version, null to skip
-    true //media or footer?
+		'//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-51f6d46a734d459a' //script url
 	);
 }
 
