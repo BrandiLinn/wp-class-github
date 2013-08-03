@@ -18,6 +18,7 @@ get_header(); ?>
 				</header>
 
 				<div class="entry-content">
+					<p><img src="<?php echo get_bloginfo('template_directory');?>/img/vintage_pong.gif" alt="So much machinery, I shall play pong!" title="So much machinery, I shall play pong!" /></p>
 					<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'twentytwelve' ); ?></p>
 					<?php get_search_form(); ?>
 				</div><!-- .entry-content -->
