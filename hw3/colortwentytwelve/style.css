@@ -14,21 +14,33 @@ body {
 
 div#page {
 	padding:0;
-	box-shadow: 0 0px 6px rgba(100, 14, 100, 78.3);
+	box-shadow: 0 0px 10px rgba(100, 14, 100, 78.3);
 }
 
-header#masthead {
+a {color: #e0f;}
+a:hover {color:#0bf;}
+
+header#masthead, footer#colophon {
 	background: #000;
 	padding-left: 5%;
-	padding-right: 5%;\
+	padding-right: 5%;
+	color: #e5f;
+}
+
+.site-header h2 {
+	color: #e5f;
+}
+
+header#masthead a, footer#colophon a {color: #e0f;}
+header#masthead a:hover, footer#colophon a:hover {color:#0bf;}
+
+div#page {
+
+	background: #dce;
 }
 
 div#main {
 	padding-left: 5%;
 	padding-right: 5%;
 	color: #212;
-	background: #fef;
 }
-
-a {color: #e0f;}
-a:hover {color:#0bf;};
