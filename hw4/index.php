@@ -29,6 +29,7 @@ function nsync_call_meta_box( $post_type, $post ) {
 
 add_action( 'add_meta_boxes', 'nsync_call_meta_box', 10, 2 );
 
+/********** What does the below block do? Is it necessary? **********/
 /**
  * Display the HTML for the metabox.
  *
@@ -58,14 +59,27 @@ function nsync_display_meta_box( $post, $args ) {
  * @param  object    $post       The current post object.
  */
 function nsync_save_meta_box( $post_id, $post ) {
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
+        return;
+
     if ( ! isset( $_POST['nsync-byeline'] ) ) {
         return;
+    }
+
+    if ( 'page' === $_POST[ 'post_type' ] ) {
+        if ( ! current_user_can( 'edit_page', $post_id ) ) {
+            return;
+        }
+    } else {
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
     }
 
     $byeline = $_POST['nsync-byeline'];
 
     if ( isset( $_POST[ 'nsync_noncename' ] ) && wp_verify_nonce( $_POST[ 'nsync_noncename' ], plugins_url( __FILE__ ) ) ) {
-        update_post_meta( $post_id, 'byebyebye-line', $byeline );
+        update_post_meta( $post_id, esc_html( $_POST[ 'byebyebye-line' ] ), $byeline );
     }
 
     return;
