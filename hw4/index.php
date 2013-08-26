@@ -76,7 +76,7 @@ function nsync_save_meta_box( $post_id, $post ) {
         }
     }
 
-    $byeline = $_POST['nsync-byeline'];
+    $byeline = esc_html( $_POST[ 'nsync-byeline' ] );
 
     if ( isset( $_POST[ 'nsync_noncename' ] ) && wp_verify_nonce( $_POST[ 'nsync_noncename' ], plugins_url( __FILE__ ) ) ) {
         update_post_meta( $post_id, 'byebyebye-line', $byeline );
