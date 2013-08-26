@@ -44,7 +44,7 @@ function nsync_display_meta_box( $post, $args ) {
         <label for="nsync-byeline">
             <?php _e( 'Bye Bye Bye Line', 'byebyebye_lines' ); ?>:&nbsp;
         </label>
-        <input type="text" class="widefat" name="nsync-byeline" value="" />
+        <input type="text" class="widefat" name="nsync-byeline" value="<?php echo get_post_meta( $post->ID, 'nsync-byeline', true ); ?>" /> <!--value not working?-->
         <em>
             <?php _e( 'HTML is not allowed', 'byebyebye_lines' ); ?>
         </em>
@@ -79,7 +79,7 @@ function nsync_save_meta_box( $post_id, $post ) {
     $byeline = $_POST['nsync-byeline'];
 
     if ( isset( $_POST[ 'nsync_noncename' ] ) && wp_verify_nonce( $_POST[ 'nsync_noncename' ], plugins_url( __FILE__ ) ) ) {
-        update_post_meta( $post_id, esc_html( $_POST[ 'byebyebye-line' ] ), $byeline );
+        update_post_meta( $post_id, 'byebyebye-line', $byeline );
     }
 
     return;
