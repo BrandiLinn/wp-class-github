@@ -44,7 +44,7 @@ function nsync_display_meta_box( $post, $args ) {
         <label for="nsync-byeline">
             <?php _e( 'Bye Bye Bye Line', 'byebyebye_lines' ); ?>:&nbsp;
         </label>
-        <input type="text" class="widefat" name="nsync-byeline" value="<?php echo get_post_meta( $post->ID, 'nsync-byeline', true ); ?>" /> <!--value not working?-->
+        <input type="text" class="widefat" name="nsync-byeline" value="<?php echo get_post_meta( $post->ID, 'byebyebye-line', true ); ?>" />
         <em>
             <?php _e( 'HTML is not allowed', 'byebyebye_lines' ); ?>
         </em>
