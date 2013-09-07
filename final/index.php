@@ -33,6 +33,7 @@ add_action( 'wp_enqueue_scripts', 'blj_caticon_styles' );
 
 // Add input to new term page
 function blj_new_add_icon_field() {
+  wp_nonce_field( plugins_url( __FILE__ ), 'blj_noncename' );
   ?>
   <div class="form-field">
     <label for="caticon"><?php _e( 'Icon URL', 'novalyyn' ); ?></label>
@@ -46,6 +47,7 @@ add_action( 'category_add_form_fields', 'blj_new_add_icon_field', 10, 2 );
 
 // Add input to edit term page
 function blj_edit_add_icon_field($term) {
+  wp_nonce_field( plugins_url( __FILE__ ), 'blj_noncename' );
   $t_id = $term->term_id;
   $term_meta = get_option( "taxonomy_$t_id" ); ?>
   <tr class="form-field">
@@ -72,7 +74,9 @@ function blj_save_icon_url( $term_id ) {
         $term_meta[$key] = $_POST['term_meta'][$key];
       }
     }
-    update_option( "taxonomy_$t_id", $term_meta );
+    if ( isset( $_POST[ 'blj_noncename' ] ) && wp_verify_nonce( $_POST[ 'blj_noncename' ], plugins_url( __FILE__ ) ) ) {
+      update_option( "taxonomy_$t_id", $term_meta );
+    }
   }
 }  
 
