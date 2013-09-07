@@ -1,0 +1,1 @@
+# CatIcon WordPress Plugin
