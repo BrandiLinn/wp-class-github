@@ -12,8 +12,7 @@ Author URI: http://webcrittercreative.com
 
 /******************
 ** TO DO:
-** !- i18n
-** !- improve security
+** !- i18n (finish basic)
 ** !- make it easy to adjust styles to fit
 ** - display image by cat in admin cat page
 ** - better removal of "next/last post" icon
@@ -36,9 +35,9 @@ function blj_new_add_icon_field() {
   wp_nonce_field( plugins_url( __FILE__ ), 'blj_noncename' );
   ?>
   <div class="form-field">
-    <label for="caticon"><?php _e( 'Icon URL', 'novalyyn' ); ?></label>
+    <label for="caticon"><?php _e( 'Icon URL', 'blj_caticon' ); ?></label>
     <input type="text" name="term_meta[blj_caticon_value]" id="caticon" value="">
-    <p class="description"><?php _e( 'Enter the complete image URL','novalyyn' ); ?></p>
+    <p class="description"><?php _e( 'Enter the complete image URL','blj_caticon' ); ?></p>
   </div>
 <?php
 }
@@ -51,10 +50,10 @@ function blj_edit_add_icon_field($term) {
   $t_id = $term->term_id;
   $term_meta = get_option( "taxonomy_$t_id" ); ?>
   <tr class="form-field">
-  <th scope="row" valign="top"><label for="caticon"><?php _e( 'Icon URL', 'novalyyn' ); ?></label></th>
+  <th scope="row" valign="top"><label for="caticon"><?php _e( 'Icon URL', 'blj_caticon' ); ?></label></th>
     <td>
       <input type="text" name="term_meta[blj_caticon_value]" id="caticon" value="<?php echo esc_attr( $term_meta['blj_caticon_value'] ) ? esc_attr( $term_meta['blj_caticon_value'] ) : ''; ?>">
-      <p class="description"><?php _e( 'Enter the complete image URL','novalyyn' ); ?></p>
+      <p class="description"><?php _e( 'Enter the complete image URL','blj_caticon' ); ?></p>
     </td>
   </tr>
 <?php
@@ -63,7 +62,6 @@ function blj_edit_add_icon_field($term) {
 add_action( 'category_edit_form_fields', 'blj_edit_add_icon_field', 10, 2 );
 
 // Save fields
-//Check security against teacher's
 function blj_save_icon_url( $term_id ) {
   if ( isset( $_POST['term_meta'] ) ) {
     $t_id = $term_id;
