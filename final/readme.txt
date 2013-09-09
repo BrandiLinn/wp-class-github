@@ -13,13 +13,13 @@ Define icons to be associated with various categories, to be placed next to the 
 
 = To Use =
 
-The user may upload images through the admin panel, then copy the image link to the icon box for each category. Upload to the Media Library (or to the image hosting service of choice), copy the complete file URL, and paste it into "Icon URL" when creating or editing a category.
+Upload image to the Media Library (or to the image hosting service of choice), copy the complete file URL (should begin with http:// and end with .png, .gif, or .jpg), and paste it into "Icon URL" when creating or editing a category.
 
 Only one icon will display, even if the post is under multiple categories.
 
 == Installation ==
 
-Coming soon.
+Download the entire directory for the CatIcon plugin. Put into the wp-content/plugins directory. From the admin panel, go to the Plugins page, and activate CatIcon.
 
 == Frequently Asked Questions ==
 
@@ -27,7 +27,9 @@ Coming soon.
 
 == Screenshots ==
 
-Coming soon.
+1. Post with an icon
+1. New Category page with icon input
+1. Edit Category page with icon input
 
 == Changelog ==
 

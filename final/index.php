@@ -12,7 +12,6 @@ Author URI: http://webcrittercreative.com
 
 /******************
 ** TO DO:
-** !- i18n (finish basic)
 ** !- make it easy to adjust styles to fit
 ** - display image by cat in admin cat page
 ** - better removal of "next/last post" icon
@@ -22,6 +21,13 @@ Author URI: http://webcrittercreative.com
 ** - ensure input is a complete link to an image
 ******************/
 
+
+function blj_caticon_i18n() { 
+  $plugin_dir = trailingslashit( basename( dirname( __FILE__ ) ) ); 
+  load_plugin_textdomain( 'blj_caticon', false, $plugin_dir . 'languages/' ); 
+} 
+
+add_action( 'plugins_loaded', 'blj_caticon_i18n' );
 
 //Bring in styles
 function blj_caticon_styles() {
